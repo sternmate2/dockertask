@@ -13,12 +13,12 @@ pipeline {
 
     stages {
         
-        stage('build docker image') {
-            steps {
+        // stage('build docker image') {
+        //     steps {
 
-                sh "docker build -t test ."
-            }
-        }
+        //         sh "docker build -t test ."
+        //     }
+        // }
         stage('Azure login + build image') {
             steps {
                 withCredentials([azureServicePrincipal('AZURE_CRED')]) {
@@ -30,6 +30,15 @@ pipeline {
                 }
             }
         }    
+
+        stage('ansible istalling dotnet on remote') {
+            steps {
+                dir("ansible") {
+                    sh "ansible-galaxy install -r requirements.yml"
+                    sh """ ansible-playbook testplaybook.yml -i inventory/prod.yml -u shahars --private-key "/home/jenkins/.ssh/id_rsa" """
+                }
+            }
+        }
 
         // stage('Deploy') {
         //     withCredentials([azureServicePrincipal('principal-credentials-id')]) {

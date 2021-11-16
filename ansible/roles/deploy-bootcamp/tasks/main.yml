@@ -1,0 +1,63 @@
+- name: Az Login
+  ansible.builtin.shell: az login --service-principal -u 3fec5201-576e-45cd-ab9e-5fa251f28ae6 -p YiT7QFi_NH5lg7HdsubtS1W3RU.EF4YRFi_ -t 812aea3a-56f9-4dcb-81f3-83e61357076e
+
+# - name: Pull docker image
+#   ansible.builtin.shell: az acr login --name shaharRG
+
+# - name: Pull docker image
+#   ansible.builtin.shell: docker run -p 4000:80 -d 
+
+
+# - name: Download Artifact from Artifactory
+#   get_url:
+#     url: https://shaharsterncicd.jfrog.io/artifactory/default-generic-local/artifact.tar
+#     dest: "{{ artifact_dest }}"
+#     mode: '0400'
+#     username: shaharstern31@gmail.com
+#     password: "qxT5cT6FcW6bp4!"  #"{{ pass }}"
+
+
+# - name: Create a directory if it does not exist
+#   ansible.builtin.file:
+#     path: "{{ app_dest }}"
+#     state: directory
+#     mode: '0755'
+
+# - name: Extract artifactcd 
+#   ansible.builtin.unarchive:
+#     src: "{{ artifact_dest }}"
+#     dest: "{{ app_dest }}"
+#     remote_src: yes
+
+# - name: Copy KeyVault.json template
+#   ansible.builtin.template:
+#     src: KeyVault.json.j2
+#     dest: "/home/shahars/KeyVault.json"
+    # owner: bin
+    # group: wheel
+    # mode: '0644'
+
+
+# - name: Run Coolapp
+#   ansible.builtin.shell: "nohup {{ app_dest }}/bin/release/netcoreapp3.1/ubuntu.16.04-x64/BootcapProject.WebService </dev/null >/dev/null 2>&1 &"
+
+# - name: HealthCheck
+#   uri:
+#     url: http://localhost/index.html
+#     method: GET
+#     status_code: 200
+#   register: healthcheck
+#   tags: ['healthcheck']
+
+# - name: Everything is OK
+#   ansible.builtin.debug:
+#     msg: OK!
+#   when: healthcheck.status == 200
+#   tags: ['healthcheck']
+
+
+# - name: Everything is FAILING!
+#   ansible.builtin.debug:
+#     msg: FAIL!
+#   when: healthcheck.status != 200
+#   tags: ['healthcheck']

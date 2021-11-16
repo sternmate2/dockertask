@@ -1,0 +1,15 @@
+- name: testplaybook
+  become: true
+  hosts: webservers
+  # vars:
+  #   jenkins_hostname: jenkins.shahars
+  #   dotnet_package: "dotnet-sdk-3.1"
+  #   # java_packages:
+  #   #   - openjdk-8-jdk
+  #   version: "1.0.0"
+  #   artifact_dest: "/tmp/coolapp-{{ version }}.tar"
+  #   app_dest: "/tmp/coolapp-{{ version }}"
+
+  # roles:
+  #   - role: ocha.dotnet-core
+  #   - role: deploy-bootcamp
