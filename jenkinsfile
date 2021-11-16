@@ -20,7 +20,7 @@ pipeline {
         stage('build docker image') {
             steps {
 
-                sh "docker build -t test ."
+                sh "sudo docker build -t test ."
             }
         }
         stage('Azure login') {
