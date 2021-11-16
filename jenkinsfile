@@ -2,15 +2,8 @@ pipeline {
     agent any
 
     environment {
-       ARM_CLIENT_ID: 3fec5201-576e-45cd-ab9e-5fa251f28ae6
-       ARM_CLIENT_SECRET:
-       ARM_TENANT_ID:
-        // ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }} 
-        // ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }} 
-        // ARM_TENANT_ID: ${{ secrets.AZURE_TENANTID }} 
-        // ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTIONID }}
-        // JFROG_USER     = credentials('Jfrog_user')
-        // jFROG_PASS = credentials('Jfrog_password')
+        JFROG_USER     = credentials('Jfrog_user')
+        jFROG_PASS = credentials('Jfrog_password')
     }
 
     stages {
@@ -27,72 +20,7 @@ pipeline {
         //         }    
         //     }
         // }
-
-        // stage('Build') {
-        //     steps {
-        //         dir("BootcapProject.WebService") {
-        //             sh "sudo dotnet publish -c release -r ubuntu.16.04-x64 --self-contained"
-        //         }           
-        //     }
-        // }
-
-        // stage('Compress >> Tar') {
-        //     steps {
-        //        dir("BootcapProject.WebService") {
-        //             sh "tar -cvf artifact.tar ."
-        //         }
-        //     }
-        // }
-
-        // stage('Publish to Jfrog') {
-        //     steps {
-        //         dir("BootcapProject.WebService") {   
-        //             sh """  curl -u${JFROG_USER}:${jFROG_PASS} -T artifact.tar "https://shaharsterncicd.jfrog.io/artifactory/default-generic-local/artifact.tar" """
-                    
-        //         }
-        //     }
-        // }
-
-        // stage('ssh to remote VM1') {
-        //     steps {
-        //         sshagent(credentials : ['ssh_key'])  {         
-        //             // sh """ ssh -o StrictHostKeyChecking=no shahars@40.114.73.94 sudo snap install dotnet-sdk --classic --channel=3.1 && sudo snap alias dotnet-sdk.dotnet dotnet && sudo snap install dotnet-runtime-31 --classic """
-        //             sh "chmod +x ./dotnet-remote-vm1.sh"
-        //             sh "./dotnet-remote-vm1.sh " 
-        //             sh """ ssh shahars@40.114.73.94 curl -u${JFROG_USER}:${jFROG_PASS} -O "https://shaharsterncicd.jfrog.io/artifactory/default-generic-local/artifact.tar" """
-        //             sh "ssh shahars@40.114.73.94 tar -xvf /home/shahars/artifact.tar "
-        //             sh "ssh shahars@40.114.73.94 sudo ./bin/release/netcoreapp3.1/ubuntu.16.04-x64/BootcapProject.WebService &"
-
-        //         }    
-        //     }
-        // }
-        // stage('ssh to remote VM2') {
-        //     steps {
-        //         sshagent(credentials : ['ssh_key'])  {         
-        //             sh "chmod +x ./dotnet-remote-vm2.sh"
-        //             sh "./dotnet-remote-vm2.sh "
-        //             sh """ ssh shahars@40.114.72.131 curl -u${JFROG_USER}:${jFROG_PASS} -O "https://shaharsterncicd.jfrog.io/artifactory/default-generic-local/artifact.tar" """
-        //             sh "ssh shahars@40.114.72.131 tar -xvf /home/shahars/artifact.tar "
-        //             sh "ssh shahars@40.114.72.131 sudo ./bin/release/netcoreapp3.1/ubuntu.16.04-x64/BootcapProject.WebService &"
-        //         }    
-        //     }
-        // }
     
-        // stage('Test VM1') {
-        //      steps {
-        //         sh """ curl -v http://40.114.73.94/index.html """
-        //     }
-        // }
-        // stage('Test VM2') {
-        //      steps {
-        //         sh """ curl -v http://40.114.72.131/index.html """
-        //     }
-        // }
+    
     }
 }
-    
-    
-
-
-
-      
