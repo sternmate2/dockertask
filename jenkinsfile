@@ -27,8 +27,6 @@ pipeline {
                     sh 'az acr login --name shaharRG --resource-group ShaharTF'
                     sh 'az acr build --image shaharrg.azurecr.io/test:lts --registry shaharRG --file Dockerfile . '
          
-         
-         
                 }
             }
         }    
