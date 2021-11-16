@@ -12,10 +12,6 @@ pipeline {
     // }
 
     stages {
-
-
-
-
         
         stage('build docker image') {
             steps {
@@ -23,7 +19,7 @@ pipeline {
                 sh "sudo docker build -t test ."
             }
         }
-        stage('Azure login') {
+        stage('Azure login + build image') {
             steps {
                 withCredentials([azureServicePrincipal('AZURE_CRED')]) {
                     sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
