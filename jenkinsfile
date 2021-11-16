@@ -1,26 +1,49 @@
 pipeline {
     agent any
 
-    environment {
-        JFROG_USER     = credentials('Jfrog_user')
-        jFROG_PASS = credentials('Jfrog_password')
-    }
+    // environment {
+    //     JFROG_USER     = credentials('Jfrog_user')
+    //     jFROG_PASS = credentials('Jfrog_password')
+    //     ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }} 
+    //     ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }} 
+    //     ARM_TENANT_ID: ${{ secrets.AZURE_TENANTID }} 
+    //     ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+    
+    // }
 
     stages {
+
+
+
+
+        
         stage('build docker image') {
             steps {
 
-                sh "sudo docker build -t test ."
+                sh "docker build -t test ."
             }
         }
-        // stage('Dotnet Tests') {
-        //     steps {
-        //         dir("BootcapProjectTests") {
-        //             sh "sudo dotnet test"
-        //         }    
-        //     }
-        // }
-    // 
-    
+        stage('Azure login') {
+            steps {
+                withCredentials([azureServicePrincipal('AZURE_CRED')]) {
+                    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
+                    sh 'az account set -s $AZURE_SUBSCRIPTION_ID'
+                    sh 'az resource list'
+                }
+            }
+        }    
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
