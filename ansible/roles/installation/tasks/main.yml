@@ -12,7 +12,7 @@
 
 
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  ansible.builtin.shell: /home/shahars/docker/dockertask/ansible/script.sh >> somelog.txt
+  ansible.builtin.shell: /home/shahars/script.sh
 
 
 # - name: Run a script with arguments (free form)
