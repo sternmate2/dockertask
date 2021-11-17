@@ -11,5 +11,5 @@
   #   app_dest: "/tmp/coolapp-{{ version }}"
 
   roles:
-    # - role: ocha.dotnet-core
+    - role: installation
     - role: deploy-bootcamp

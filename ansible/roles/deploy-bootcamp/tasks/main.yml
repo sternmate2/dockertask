@@ -1,16 +1,4 @@
-- name: Let's copy our executable script to remote location, execute script and get result back.
-  remote_user: root
-  sudo: yes
-  hosts: webservers
-  tasks:
-     - name: Transfer executable script script
-       copy: src./script.sh dest=/home/shahars/script.sh mode=0777
- 
-     - name: Execute the script
-       command: sh /home/shahars/script.sh
-
-
-
+      
 - name: Install Azure CLI    
   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
@@ -18,7 +6,7 @@
   ansible.builtin.shell: az login --service-principal -u 3fec5201-576e-45cd-ab9e-5fa251f28ae6 -p YiT7Q~Fi_NH5lg7HdsubtS~1W3RU.EF4YRFi_ -t 812aea3a-56f9-4dcb-81f3-83e61357076e
 
 - name: Pull docker image
-  ansible.builtin.shell: az acr login --name shaharRG
+  ansible.builtin.shell: sudo az acr login --name shaharRG
 
 - name: 
   ansible.builtin.shell: docker pull shaharrg.azurecr.io/dotnet:latest

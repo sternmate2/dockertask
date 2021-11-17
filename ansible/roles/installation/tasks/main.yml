@@ -1,0 +1,42 @@
+
+
+# - name: Install Azure CLI    
+#   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: /home/shahars/docker/dockertask/ansible/script.sh
+    dest: /home/shahars/
+    owner: shahars
+    group: shahars
+    mode: '0777'
+
+
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote
+  ansible.builtin.shell: /home/shahars/docker/dockertask/ansible/script.sh >> somelog.txt
+
+
+# - name: Run a script with arguments (free form)
+#   script: pwd #./script.sh 
+
+# - name: Let's copy our executable script to remote location, execute script and get result back.
+#   remote_user: root
+#   sudo: yes
+#   hosts: webservers
+
+#     - name: Transfer executable script script
+#       copy: src dest=/home/shahars/script.sh mode=0777
+
+#     - name: Execute the script
+#       command: sh /home/shahars/script.sh
+
+# ---
+# - name: Let's copy our executable script to remote location, execute script and get result back.
+#   remote_user: root
+#   sudo: yes
+#   hosts: webservers
+#   tasks:
+#      - name: Transfer executable script script
+#        copy: src=./script.sh home/shahars/script.sh mode=0777
+ 
+#      - name: Execute the script
+#        command: sh home/shahars/script.sh
