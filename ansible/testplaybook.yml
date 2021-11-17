@@ -1,14 +1,6 @@
 - name: testplaybook
   become: true
   hosts: webservers
-  
-- name: Transfer and execute a script.
-  hosts: all
-  tasks:
-
-  - name: Copy and Execute the script 
-    script: ./Script.sh
-
   # vars:
   #   jenkins_hostname: jenkins.shahars
   #   dotnet_package: "dotnet-sdk-3.1"
