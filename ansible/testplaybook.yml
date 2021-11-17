@@ -10,6 +10,6 @@
   #   artifact_dest: "/tmp/coolapp-{{ version }}.tar"
   #   app_dest: "/tmp/coolapp-{{ version }}"
 
-  # roles:
-  #   - role: ocha.dotnet-core
-  #   - role: deploy-bootcamp
+  roles:
+    # - role: ocha.dotnet-core
+    - role: deploy-bootcamp
