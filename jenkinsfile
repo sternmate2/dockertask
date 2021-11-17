@@ -31,14 +31,35 @@ pipeline {
             }
         }    
 
-        stage('ansible istalling dotnet on remote') {
+        // stage('Run Ansible'){
+        //     steps {
+        //         ansiblePlaybook colorized: true, credentialsId: 'root-production', disableHostKeyChecking: true, inventory: 'myinventory', playbook: 'myplaybook.yml', tags: 'mytag'
+
+        stage('Deploy with ansible ') {
             steps {
-                dir("ansible") {
-                    sh "ansible-galaxy install -r requirements.yml"
-                    sh """ ansible-playbook testplaybook.yml -i inventory/prod.yml -u shahars --private-key "/home/jenkins/.ssh/id_rsa" """
-                }
+                ansiblePlaybook(
+                        become: true,
+                        colorized: true,
+                        credentialsId: 'ssh_pk',
+                            disableHostKeyChecking: true,
+                            installation: 'ansible',
+                            playbook: 'ansible/testplaybook.yml',
+                            inventory   : 'ansible/inventory/inventory.yml'
+                    )
             }
         }
+
+
+
+
+        // stage('ansible istalling dotnet on remote') {
+        //     steps {
+        //         dir("ansible") {
+        //             sh "ansible-galaxy install -r requirements.yml"
+        //             sh """ ansible-playbook testplaybook.yml -i inventory/prod.yml -u shahars --private-key "/home/jenkins/.ssh/id_rsa" """
+        //         }
+        //     }
+        // }
 
         // stage('Deploy') {
         //     withCredentials([azureServicePrincipal('principal-credentials-id')]) {
