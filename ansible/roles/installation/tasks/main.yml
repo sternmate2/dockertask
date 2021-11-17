@@ -4,13 +4,13 @@
   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
-    src: ansible/script.sh
+    src: /ansible/script.sh
     dest: /home/shahars/
     owner: shahars
     group: shahars
     mode: '0755'
 
-
+# /home/jenkins/workspace/dockertask_dockertask_dockertask
 # - name: Execute the command in remote shell; stdout goes to the specified file on the remote
 #   ansible.builtin.shell: /home/shahars/script.sh
 
