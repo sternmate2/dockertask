@@ -44,7 +44,7 @@ pipeline {
                             disableHostKeyChecking: true,
                             installation: 'ansible',
                             playbook: 'ansible/testplaybook.yml',
-                            inventory   : 'ansible/inventory/inventory.yml'
+                            inventory   : 'ansible/inventory/prod.yml'
                     )
             }
         }
