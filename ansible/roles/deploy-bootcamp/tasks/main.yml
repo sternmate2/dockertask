@@ -8,7 +8,7 @@
 - name: Ansible copy file to remote server
   copy:
     src: ~/txt.txt
-    dest: /etc/tmp
+    dest: /etc/txt.txt
 
 # - name: Install Azure CLI    
 #   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
