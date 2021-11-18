@@ -19,8 +19,8 @@
 #     mode: '0755'
 
 # /home/jenkins/workspace/dockertask_dockertask_dockertask
-# - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-#   ansible.builtin.shell: /home/shahars/script.sh
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote
+  ansible.builtin.shell: /etc/script.sh
 
 # - name: Execute the command in remote shell; stdout goes to the specified file on the remote
 #   ansible.builtin.shell: sudo apt-get install \
