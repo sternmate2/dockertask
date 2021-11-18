@@ -7,7 +7,7 @@
 
 - name: Ansible copy file to remote server
   copy:
-    src: /home/jenkins/txt.txt
+    src: /home/jenkins/workspace/txt.txt
     dest: /etc/txt.txt
 
 # - name: Install Azure CLI    
