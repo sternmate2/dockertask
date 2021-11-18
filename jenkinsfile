@@ -40,12 +40,12 @@ pipeline {
                 ansiblePlaybook(
                         become: true,
                         colorized: true,
-                        verbos: 4,
                         credentialsId: 'ssh_pk',
                             disableHostKeyChecking: true,
                             installation: 'ansible',
                             playbook: 'ansible/testplaybook.yml',
-                            inventory   : 'ansible/inventory/prod.yml'
+                            inventory   : 'ansible/inventory/prod.yml',
+                            extras: '-vvv'
                     )
             }
         }
