@@ -14,8 +14,9 @@
 
 
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  ansible.builtin.shell: sh /etc/script.sh
-  become: yes
+  ansible.builtin.shell: sudo sh /etc/script.sh
+  become: true
+
 
 
 # - name: Let's copy our executable script to remote location, execute script and get result back.
