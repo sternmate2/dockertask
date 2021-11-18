@@ -1,6 +1,7 @@
 - name: testplaybook
   become: true
   hosts: webservers
+  become_user: root
   # vars:
   #   jenkins_hostname: jenkins.shahars
   #   dotnet_package: "dotnet-sdk-3.1"
