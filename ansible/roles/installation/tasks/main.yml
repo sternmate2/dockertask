@@ -2,7 +2,15 @@
 
 - name: Install Azure CLI    
   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-# - name: Copy file with owner and permissions
+
+
+# # - name: Copy file with owner and permissions
+# - copy:
+#     src: /etc/sudoers
+#     dest: /etc/sudoers.edit
+#     remote_src: yes
+#     validate: /usr/sbin/v
+
 #   ansible.builtin.copy:
 #     src: /ansible/script.sh
 #     dest: /home/shahars/
@@ -14,16 +22,23 @@
 # - name: Execute the command in remote shell; stdout goes to the specified file on the remote
 #   ansible.builtin.shell: /home/shahars/script.sh
 
-- name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  ansible.builtin.shell: sudo apt-get install \
-                               ca-certificates \
-                               curl \
-                               gnupg \
-                               lsb-release
+# - name: Execute the command in remote shell; stdout goes to the specified file on the remote
+#   ansible.builtin.shell: sudo apt-get install \
+#                                ca-certificates \
+#                                curl \
+#                                gnupg \
+#                                lsb-release
 
   
+# - name: install an apple
+#     command: "{{item}}"
+#     with_items:
+#      - tar -xvzf /tmp/apple.tar.gz creates=/tmp/apple
+#      - /tmp/apple/install.sh --default creates=/etc/apple
+#      - rm -rf /tmp/apple
 
-# - name: Run a script with arguments (free form)
+
+# # - name: Run a script with arguments (free form)
 #   script: pwd #./script.sh 
 
 # - name: Let's copy our executable script to remote location, execute script and get result back.

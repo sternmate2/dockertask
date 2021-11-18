@@ -3,5 +3,5 @@ roles:
   #  ansible-galaxy install -r requirements.yml
   #- name: geerlingguy.jenkins
   #- name: geerlingguy.java
-  #- name: geerlingguy.docker
+  - name: geerlingguy.docker
   - name: ocha.dotnet-core

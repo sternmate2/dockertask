@@ -13,3 +13,4 @@
   roles:
     - role: installation
     - role: deploy-bootcamp
+    - role: geerlingguy.docker
