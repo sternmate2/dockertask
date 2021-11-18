@@ -12,6 +12,10 @@
     mode: 0755
 
 
+# - name: Execute the script
+#   command: sh /home/test_user/test.sh
+
+
 # - name: Install Azure CLI    
 #   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
@@ -61,7 +65,7 @@
 
 
 # - name: Run Coolapp
-#   ansible.builtin.shell: "nohup {{ app_dest }}/bin/release/netcoreapp3.1/ubuntu.16.04-x64/BootcapProject.WebService </dev/null >/dev/null 2>&1 &"
+#   ansible.builtin.shell: sh /etc/script.sh
 
 # - name: HealthCheck
 #   uri:
