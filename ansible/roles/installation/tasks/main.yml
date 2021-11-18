@@ -27,7 +27,7 @@
 #                                ca-certificates \
 #                                curl \
 #                                gnupg \
-#                                lsb-release
+#                                  lsb-release
 
   
 # - name: install an apple

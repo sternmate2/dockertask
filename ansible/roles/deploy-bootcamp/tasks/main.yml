@@ -9,6 +9,7 @@
   copy:
     src: /home/jenkins/workspace/dockertask_dockertask_dockertask/script.sh
     dest: /etc/script.sh
+    mode: 0755
 
 
 # - name: Install Azure CLI    
