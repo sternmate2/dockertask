@@ -40,7 +40,7 @@ pipeline {
                 ansiblePlaybook(
                         become: true,
                         colorized: true,
-                        verbos: 4
+                        verbos: 4,
                         credentialsId: 'ssh_pk',
                             disableHostKeyChecking: true,
                             installation: 'ansible',
