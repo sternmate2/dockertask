@@ -1,5 +1,5 @@
 - name: testplaybook
-  become: true
+  become: yes
   hosts: webservers
   become_user: root
   # vars:

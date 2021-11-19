@@ -1,7 +1,14 @@
+- name: Ansible copy file to remote server
+  copy:
+    src: /home/jenkins/workspace/dockertask_dockertask_dockertask/script.sh   #~/docker/dockertask/script.sh
+    dest: /home/shahars/script.sh
+    mode: 0755
+
+
 
 - name: Change file ownership, group and permissions
   ansible.builtin.file:
-    path: /etc/script.sh
+    path: /home/shahars/script.sh
     owner: shahars
     group: shahars
     mode: '0755'
@@ -14,7 +21,7 @@
 
 
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  ansible.builtin.shell: sudo sh /etc/script.sh
+  ansible.builtin.shell: sh /home/shahars/script.sh
   become: true
 
 

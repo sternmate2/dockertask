@@ -5,25 +5,20 @@
 #     state: directory
 #     mode: '0755'
 
-- name: Ansible copy file to remote server
-  copy:
-    src: /home/jenkins/workspace/dockertask_dockertask_dockertask/script.sh
-    dest: /etc/script.sh
-    mode: 0755
 
 
 # - name: Execute the script
 #   command: sh /home/test_user/test.sh
 
 
-# - name: Install Azure CLI    
-#   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+- name: Install Azure CLI    
+  ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# - name: Az Login
-#   ansible.builtin.shell: az login --service-principal -u 3fec5201-576e-45cd-ab9e-5fa251f28ae6 -p YiT7Q~Fi_NH5lg7HdsubtS~1W3RU.EF4YRFi_ -t 812aea3a-56f9-4dcb-81f3-83e61357076e
+- name: Az Login
+  ansible.builtin.shell: az login --service-principal -u 3fec5201-576e-45cd-ab9e-5fa251f28ae6 -p YiT7Q~Fi_NH5lg7HdsubtS~1W3RU.EF4YRFi_ -t 812aea3a-56f9-4dcb-81f3-83e61357076e
 
-# - name: Pull docker image
-#   ansible.builtin.shell: sudo az acr login --name shaharRG
+- name: Pull docker image
+  ansible.builtin.shell: sudo az acr login --name shaharRG
 
 # - name: 
 #   ansible.builtin.shell: docker pull shaharrg.azurecr.io/dotnet:latest
