@@ -25,8 +25,8 @@
 
 
 
-# - name: Pull docker image
-#   ansible.builtin.shell: docker run -p 4000:80 -d 
+- name: docker run app on port 4000
+  ansible.builtin.shell: docker run shaharrg.azurecr.io/dotnet:latest -p 4000:80 -d 
 
 
 # - name: Download Artifact from Artifactory
