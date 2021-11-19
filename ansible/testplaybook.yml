@@ -2,16 +2,8 @@
   become: yes
   hosts: webservers
   become_user: root
-  # vars:
-  #   jenkins_hostname: jenkins.shahars
-  #   dotnet_package: "dotnet-sdk-3.1"
-  #   # java_packages:
-  #   #   - openjdk-8-jdk
-  #   version: "1.0.0"
-  #   artifact_dest: "/tmp/coolapp-{{ version }}.tar"
-  #   app_dest: "/tmp/coolapp-{{ version }}"
-
   roles:
     - role: installation
-    - role: deploy-bootcamp
+    - role: AzureLogin
+    - role: deployment
     # - role: geerlingguy.docker

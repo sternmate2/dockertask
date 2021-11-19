@@ -1,0 +1,8 @@
+
+- name: Pull docker image
+  ansible.builtin.shell: docker pull shaharrg.azurecr.io/dotnet:latest
+
+
+
+- name: docker run app on port 4000
+  ansible.builtin.shell: sudo docker run -d -p 4000:80 shaharrg.azurecr.io/dotnet:latest
