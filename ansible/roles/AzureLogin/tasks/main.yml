@@ -1,5 +1,5 @@
 - name: Az Login
-  ansible.builtin.shell: az login --service-principal -u {{Azure_User_ID}} -p {{Azure_User_Pass}} -t {{Azure_SUB_ID}}
+  ansible.builtin.shell: az login --service-principal -u {{ Azure_User_ID }} -p {{ Azure_User_Pass }} -t {{ Azure_SUB_ID }}
 
 - name: ACR login
   ansible.builtin.shell: sudo az acr login --name shaharRG
