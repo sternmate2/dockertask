@@ -2,12 +2,6 @@ pipeline {
     agent any
     stages {
         
-        // stage('build docker image') {
-        //     steps {
-
-        //         sh "docker build -t test ."
-        //     }
-        // }
         stage('Azure login + build image') {
             steps {
                 withCredentials([azureServicePrincipal('AZURE_CRED')]) {
@@ -20,10 +14,6 @@ pipeline {
             }
         }    
 
-        // stage('Run Ansible'){
-        //     steps {
-        //         ansiblePlaybook colorized: true, credentialsId: 'root-production', disableHostKeyChecking: true, inventory: 'myinventory', playbook: 'myplaybook.yml', tags: 'mytag'
-
         stage('Deploy with ansible ') {
             steps {
                 ansiblePlaybook(
@@ -34,38 +24,10 @@ pipeline {
                             installation: 'ansible',
                             playbook: 'ansible/testplaybook.yml',
                             inventory   : 'ansible/inventory/prod.yml',
-                            extras: '-vvv'
+                            extras: '-v'
                     )
             }
         }
-
-
-
-
-        // stage('ansible istalling dotnet on remote') {
-        //     steps {
-        //         dir("ansible") {
-        //             sh "ansible-galaxy install -r requirements.yml"
-        //             sh """ ansible-playbook testplaybook.yml -i inventory/prod.yml -u shahars --private-key "/home/jenkins/.ssh/id_rsa" """
-        //         }
-        //     }
-        // }
-
-        // stage('Deploy') {
-        //     withCredentials([azureServicePrincipal('principal-credentials-id')]) {
-        //     sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
-        //     sh 'az account set -s $AZURE_SUBSCRIPTION_ID'
-        //     sh 'az resource list'
-        //     }
-        // }
-
-
-
-
-
-
-
-
 
 
 
