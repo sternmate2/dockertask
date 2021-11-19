@@ -4,17 +4,12 @@
     dest: /home/shahars/script.sh
     mode: 0755
 
-
-
 - name: Change file ownership, group and permissions
   ansible.builtin.file:
     path: /home/shahars/script.sh
     owner: shahars
     group: shahars
     mode: '0755'
-
-
-
 
 - name: Install Azure CLI    
   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -24,27 +19,3 @@
   ansible.builtin.shell: sh /home/shahars/script.sh
   become: true
 
-
-
-# - name: Let's copy our executable script to remote location, execute script and get result back.
-#   remote_user: root
-#   sudo: yes
-#   hosts: webservers
-
-#     - name: Transfer executable script script
-#       copy: src dest=/home/shahars/script.sh mode=0777
-
-#     - name: Execute the script
-#       command: sh /home/shahars/script.sh
-
-# ---
-# - name: Let's copy our executable script to remote location, execute script and get result back.
-#   remote_user: root
-#   sudo: yes
-#   hosts: webservers
-#   tasks:
-#      - name: Transfer executable script script
-#        copy: src=./script.sh home/shahars/script.sh mode=0777
- 
-#      - name: Execute the script
-#        command: sh home/shahars/script.sh

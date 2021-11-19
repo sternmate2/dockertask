@@ -1,16 +1,4 @@
 
-# - name: Create a directory if it does not exist
-#   ansible.builtin.file:
-#     path: "{{ app_dest }}"
-#     state: directory
-#     mode: '0755'
-
-
-
-# - name: Execute the script
-#   command: sh /home/test_user/test.sh
-
-
 - name: Install Azure CLI    
   ansible.builtin.shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
@@ -26,7 +14,9 @@
 
 
 - name: docker run app on port 4000
-  ansible.builtin.shell: docker run shaharrg.azurecr.io/dotnet:latest -p 4000:80 -d 
+  ansible.builtin.shell: sudo docker run -d -p 4000:80 shaharrg.azurecr.io/dotnet:latest
+
+
 
 
 # - name: Download Artifact from Artifactory
