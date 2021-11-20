@@ -23,9 +23,9 @@ pipeline {
                             disableHostKeyChecking: true,
                             installation: 'ansible',
                             playbook: 'ansible/testplaybook.yml',
-                            inventory   : 'ansible/inventory/prod.yml',
-                            extras: '-v'
-                    )
+                            inventory: 'ansible/inventory/prod.yml',
+                            extras: '--vault-password-file pass.yml'
+                )
             }
         }
 
