@@ -24,7 +24,7 @@ pipeline {
                             installation: 'ansible',
                             playbook: 'ansible/testplaybook.yml',
                             inventory: 'ansible/inventory/prod.yml',
-                            extras: '--vault-password-file ansible/pass.yml'
+                            vaultCredentialsId: "${Ansible_File}"
                 )
             }
         }

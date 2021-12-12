@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../BootcapProject"
+		},
+		{
+			"path": "../../../BootcapProject/ansible"
+		},
+		{
+			"path": "../../../k8s"
+		}
+	],
+	"settings": {}
+}
